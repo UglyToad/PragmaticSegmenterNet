@@ -1,0 +1,101 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Pragmatic Segmenter .NET Annotator</h1>
+<p class="lede">Use this web page to write and edit test XML data used to validate sentence splitting.</p>
+
+<h2>New Test</h2>
+<p>Enter a new test case here, click save to persist it.</p>
+
+<form>
+    <textarea rows="30" style="height: 250px;" id="input-area" class="u-full-width" placeholder="Input …"></textarea>
+    <button type="button" id="generate">Generate</button>
+    <button type="button" id="rmrn">Remove Newlines</button>
+
+    <ol id="validation-area"></ol>
+
+    <button type="button" id="add-row">Add</button>
+
+    <button class="button-primary" type="button" id="save" disabled="disabled">Save</button>
+</form>
+
+@if (Model.ExistingTests?.Count > 0)
+{
+
+    <h2>Existing Tests</h2>
+    <ol>
+        @foreach (var test in Model.ExistingTests)
+        {
+            <li><a id="test-@test.Index">@test.Sample</a></li>
+        }
+    </ol>
+}
+
+@section Scripts{
+    <script>
+        $(function () {
+            console.log("loaded");
+
+            $("#add-row").click(function () {
+                console.log("flemp");
+                $("#validation-area").append("<li><input type='text'></input></li>");
+            });
+
+            $("#generate").click(function () {
+                var text = $("#input-area").val();
+                $("#validation-area").empty();
+                $("#save").prop("disabled", true);
+
+                if (!text || text.length === 0) {
+                    return;
+                }
+
+                $.post("/Home/Generate",
+                    {
+                        text: text
+                    }, function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            var li = $("<li>").appendTo("#validation-area");
+                            var item = $('<input>').attr({
+                                type: "text",
+                                'class': "u-full-width"
+                            }).appendTo(li);
+
+                            item.val(data[i]);
+                        }
+                        $("#save").prop('disabled', false);
+                    });
+            });
+
+            $("#rmrn").click(function() {
+                var text = $("#input-area").val();
+                text = text.replace(/(?:\r\n|\r|\n)/g, ' ');
+                $("#input-area").val(text);
+            });
+
+            $("#save").click(function() {
+                var text = $("#input-area").val();
+                var res = [];
+
+                $("#validation-area input").each(function () {
+                    console.log(this);
+                    res.push($(this).val());
+                });
+
+                $("#input-area").val('');
+                console.log(res);
+
+                $.post("/Home/Save",
+                    {
+                        text: text,
+                        sentences: res
+                    }, function() {
+                        $("#validation-area").empty();
+                        $("#save").prop('disabled', true);
+                    });
+            });
+        })
+    </script>
+}
