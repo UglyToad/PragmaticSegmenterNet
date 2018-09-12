@@ -1,5 +1,7 @@
 # PragmaticSegmenterNet #
 
+[![Build status](https://ci.appveyor.com/api/projects/status/5jewe50doajnrckc?svg=true)](https://ci.appveyor.com/project/EliotJones/pragmaticsegmenternet)
+
 This project is a direct port of [Pragmatic Segmenter](https://github.com/diasks2/pragmatic_segmenter) which provides rule-based sentence 
 boundary detection.
 
