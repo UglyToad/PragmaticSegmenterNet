@@ -11,6 +11,11 @@
                 return new string[0];
             }
 
+            if (text.Length == 1)
+            {
+                return new [] { text };
+            }
+
             var matchingLanguage = LanguageProvider.Get(language);
 
             if (cleanText)

@@ -37,6 +37,11 @@
             {
                 var split = CheckForPunctuation(parts[i], language);
 
+                if (split.Count == 0)
+                {
+                    continue;
+                }
+
                 if (split.Count == 1)
                 {
                     parts[i] = language.SubSymbolsRules.Apply(split[0]);
@@ -56,6 +61,11 @@
 
             for (var i = 0; i < parts.Count; i++)
             {
+                if (parts[i].Length <= 2)
+                {
+                    continue;
+                }
+
                 var newParts = PostProcessSegment(parts[i], language);
 
                 if (newParts.Length == 0)

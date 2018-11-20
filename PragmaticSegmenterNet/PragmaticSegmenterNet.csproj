@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/UglyToad/PragmaticSegmenterNet</RepositoryUrl>
     <PackageTags>NLP Sentences Text Segmenter BoundaryDetection Segmentation</PackageTags>
     <PackageId>PragmaticSegmenterNet</PackageId>
+    <PackageIconUrl>https://raw.githubusercontent.com/UglyToad/PragmaticSegmenterNet/master/logo.png</PackageIconUrl>
   </PropertyGroup>
 
 </Project>

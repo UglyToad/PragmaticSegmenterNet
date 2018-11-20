@@ -612,6 +612,27 @@
             Assert.Equal(new[] { "What do you see?", "- Posted like silent sentinels all around the town, stand thousands upon thousands of mortal men fixed in ocean reveries." }, result);
         }
 
+        [Fact]
+        public void CorrectlyHandlesSinglePeriod()
+        {
+            var result = Segmenter.Segment(".");
+            Assert.Equal(new[] { "." }, result);
+        }
+
+        [Fact]
+        public void CorrectlyHandlesSingleLetterWithPeriod()
+        {
+            var result = Segmenter.Segment("A.");
+            Assert.Equal(new[] { "A." }, result);
+        }
+
+        [Fact]
+        public void CorrectlyHandlesExclamationMark()
+        {
+            var result = Segmenter.Segment("!");
+            Assert.Equal(new[] { "!" }, result);
+        }
+
         [Theory]
         [MemberData(nameof(LoadXml))]
         public void DataTests(string input, string[] expected)
