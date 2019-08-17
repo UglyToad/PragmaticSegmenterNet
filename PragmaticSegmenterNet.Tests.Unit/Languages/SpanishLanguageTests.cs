@@ -206,7 +206,7 @@
         public void CorrectlySegmentsText024()
         {
             var result = Segmenter.Segment("Aquí está la lista de compras para el almuerzo: 1.Helado, 2.Carne, 3.Arroz. ¿Cuánto costará? Quizás $12.5.", Language.Spanish);
-            Assert.Equal(new[] { "Aquí está la lista de compras para el almuerzo: 1.Helado, 2.Carne, 3.Arroz.", "¿Cuánto costará?", "Quizás $12.5." }, result);
+            Assert.Equal(new[] { "Aquí está la lista de compras para el almuerzo: 1. Helado, 2. Carne, 3. Arroz.", "¿Cuánto costará?", "Quizás $12.5." }, result);
         }
 
         [Fact]

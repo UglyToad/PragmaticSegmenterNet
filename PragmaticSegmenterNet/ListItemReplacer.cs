@@ -52,7 +52,7 @@
         private static readonly Rule SubstituteListPeriodRule = new Rule("♨", "∯");
         private static readonly Rule ListMarkerRule = new Rule("☝", "");
         private static readonly Rule SpaceBetweenListItemsFirstRule = new Rule(@"(?<=\S\S|^)\s(?=\S\s*\d{1,2}♨)", "\r");
-        private static readonly Rule SpaceBetweenListItemsSecondRule = new Rule(@"(?<=\S\S|^)\s(?=\d{1,2}♨)", "\r");
+        private static readonly Rule SpaceBetweenListItemsSecondRule = new Rule(@"(?<=\S[^\s,:]|^)\s(?=\d{1,2}♨)", "\r");
         private static readonly Rule SpaceBetweenListItemsThirdRule = new Rule(@"(?<=\S\S|^)\s(?=\d{1,2}☝)", "\r");
 
         public static string AddLineBreak(string text)
