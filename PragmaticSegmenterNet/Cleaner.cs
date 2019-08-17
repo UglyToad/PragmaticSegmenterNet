@@ -150,7 +150,7 @@
             {
                 var abbr = language.CleanedAbbreviations[i];
                 
-                if (word.IndexOf(abbr, StringComparison.OrdinalIgnoreCase) >= 0)
+                if (word.IndexOf(abbr + ".", StringComparison.OrdinalIgnoreCase) >= 0)
                 {
                     return txt;
                 }
