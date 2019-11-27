@@ -55,6 +55,10 @@
             var result = Segmenter.Segment("Were Jane and co. at the party?");
 
             Assert.Equal(new[] { "Were Jane and co. at the party?" }, result);
+
+            result = Segmenter.Segment("In Eq. 2, i stands for the year counter.");
+
+            Assert.Equal(new[] { "In Eq. 2, i stands for the year counter." }, result);
         }
 
         [Fact]
