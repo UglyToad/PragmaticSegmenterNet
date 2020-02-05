@@ -51,11 +51,11 @@ namespace PragmaticSegmenterNet.Tests.Unit
         [Fact]
         public void HandlesRegexContainingText()
         {
-            var result = Segmenter.Segment("('$0 xyz, $0 abc, $0 def').");
+            var result = Segmenter.Segment("('$0 xyz, $1 abc, $0 def').");
 
             Assert.Equal(1, result.Count);
 
-            Assert.Equal("('$0 xyz, $0 abc, $0 def').", result[0]);
+            Assert.Equal("('$0 xyz, $1 abc, $0 def').", result[0]);
         }
     }
 }

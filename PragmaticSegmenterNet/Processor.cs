@@ -1,11 +1,15 @@
 ﻿namespace PragmaticSegmenterNet
 {
     using System.Collections.Generic;
+    using System.Text.RegularExpressions;
 
     internal static class Processor
     {
+        private static readonly Regex NumberedGroups = new Regex(@"\$(\d+)");
+
         public static IReadOnlyList<string> Process(string text, ILanguage language)
         {
+            text = ReplaceRegexGroupsSyntax(text);
             text = ListItemReplacer.AddLineBreak(text);
             text = language.AbbreviationReplacer.Replace(text);
             text = language.NumberRules.Apply(text);
@@ -29,6 +33,13 @@
             });
 
             return input;
+        }
+
+        private static string ReplaceRegexGroupsSyntax(string input)
+        {
+            var result = NumberedGroups.Replace(input, @"&☃$1");
+
+            return result;
         }
     }
 }

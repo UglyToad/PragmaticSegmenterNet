@@ -97,9 +97,18 @@
                     parts.RemoveAt(i);
                     i--;
                 }
+                else
+                {
+                    parts[i] = RevertRegexGroupReplacement(parts[i]);
+                }
             }
 
             return parts;
+        }
+
+        private static string RevertRegexGroupReplacement(string text)
+        {
+            return text.Replace("&☃", "$");
         }
 
         private static string CheckForParenthesesBetweenQuotes(string text, ILanguage language)
