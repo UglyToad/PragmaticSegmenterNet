@@ -11,7 +11,7 @@
     <PackageTags>NLP Sentences Text Segmenter BoundaryDetection Segmentation</PackageTags>
     <PackageId>PragmaticSegmenterNet</PackageId>
     <PackageIconUrl>https://raw.githubusercontent.com/UglyToad/PragmaticSegmenterNet/master/logo.png</PackageIconUrl>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
 </Project>
