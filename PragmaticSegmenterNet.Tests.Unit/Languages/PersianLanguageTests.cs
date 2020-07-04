@@ -1,4 +1,4 @@
-﻿namespace PragmaticSegmenterNet.Tests.Unit
+﻿namespace PragmaticSegmenterNet.Tests.Unit.Languages
 {
     using Xunit;
 

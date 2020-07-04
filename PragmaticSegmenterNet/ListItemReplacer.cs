@@ -158,7 +158,7 @@
 
             for (var i = 0; i < matches.Count; i++)
             {
-                list.Add(int.Parse(matches[i].Value));
+                list.Add(int.Parse(matches[i].Value.Trim()));
             }
 
             var result = text;

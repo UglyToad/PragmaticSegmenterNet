@@ -57,5 +57,16 @@ namespace PragmaticSegmenterNet.Tests.Unit
 
             Assert.Equal("('$0 xyz, $1 abc, $0 def').", result[0]);
         }
+
+        [Fact]
+        public void HandlesNonBreakingSpaceText()
+        {
+            var result = Segmenter.Segment("Trututu\u00A01. trututu\u00A02. trututu");
+
+            Assert.Equal(3, result.Count);
+            Assert.Equal("Trututu", result[0]);
+            Assert.Equal("1. trututu", result[1]);
+            Assert.Equal("2. trututu", result[2]);
+        }
     }
 }
