@@ -56,4 +56,4 @@ The Segment method has a number of optional parameters:
 
 ## Credit ##
 
-This project wouldn't be possible without the work done by [Pragmatic Segmenter](https://github.com/diasks2/pragmatic_segmenter) team. Any bugs in the code are entirely my fault.
+This project wouldn't be possible without the work done by [Pragmatic Segmenter](https://github.com/diasks2/pragmatic_segmenter) team.
